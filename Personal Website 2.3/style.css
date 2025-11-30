@@ -1,0 +1,90 @@
+:root{
+    --bg-color: #111; --bg-color1: rgba(60, 60, 60, 0.8); 
+    --text-color: #eee;
+    --button-bg: rgba(0,0,0,0.6);
+    --button-text: #fff;
+    --border-color: rgba(255, 255, 255, 0.15); 
+}
+
+body.light-mode{
+    --bg-color: #f2f2f2; --bg-color1: rgba(255, 255, 255, 0.66);
+    --text-color: #111;
+    --button-bg: rgba(255,255,255,0.8);
+    --button-text: #111;
+    --border-color: rgba(255, 255, 255, 0.15); 
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+header{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+#theme-toggle{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+#theme-toggle:hover{
+    filter: brightness(1.1);
+}
+
+body.light-mode #theme-toggle:hover{
+    filter: brightness(1.2);
+}
+
+#theme-icon{
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover #theme-icon{
+    transform: rotate(20deg);
+}
+
+body:not(.light-mode) #theme-toggle{
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body.light-mode #theme-toggle{
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+footer{
+    width: 250px;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    transition: all 0.4s ease;
+    z-index: 10;
+}
